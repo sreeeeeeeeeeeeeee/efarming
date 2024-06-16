@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load crispy_forms_filters%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+{% block title %} <title>workeraccounts</title> {% endblock title %}
+{%block content%}
+<h5>View worker accounts</h5><br>
+<div class="table">
+  <table>
+    <div class="table">
+      <div class="table-body">
+        <tr>
+          <th>Name</th>
+          <th>User ID</th>
+          <th>Phone No</th>
+          <th>Address</th>
+          <th>Email</th>
+          <th>Occupation</th>
+          <th>Experience</th>
+          <th>Manage</th>
+        </tr>
+        {% for worker in workeracc %}
+        <tr>
+          <td>{{ worker.workername }}</td>
+          <td>{{ worker.id }}</td>
+          <td>{{ worker.phoneno }}</td>
+          <td>{{ worker.address }}</td>
+          <td>{{ worker.email }}</td>
+          <td>{{ worker.occupation }}</td>
+          <td>{{ worker.experience }}</td>
+          <td><a href="{%url 'deleteworker' worker.id %}" class="btn btn-dark">Remove</a><td>
+          </tr>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    
+{% endblock %}

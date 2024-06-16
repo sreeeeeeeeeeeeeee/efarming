@@ -1,0 +1,22 @@
+{% extends 'baseindex.html' %}
+{% load crispy_forms_filters%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+{% block title %} <title>Customer page</title> {% endblock title %}
+{%block content%}
+<style>
+    body {
+      background-image: url({% static '/img/bgpic4.jpg' %});
+      background-repeat: no-repeat;
+      background-size: 100%;
+    }
+  </style>
+  <div style="border:solid black; width:500px;margin-left:350px;margin-top:50px;padding:20px;">
+  <center>
+    <h5><i>Is this your first experience with SmartFarming?? <a href="{%url 'customerdetail' %}"><p>Register now!!</p></a>
+    <br>
+    <br>
+    Are you already a customer?? <a href="{%url 'logins' %}">Login</a></i></h5>
+    </center>
+  </div>
+{% endblock %}

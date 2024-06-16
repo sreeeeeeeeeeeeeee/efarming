@@ -1,0 +1,25 @@
+{% extends 'farmer/base.html' %}
+{% load crispy_forms_filters%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+{% block title %} <title>requestdetails</title> {% endblock title %}
+{%block content%}
+    <div class="card-deck">
+      {% for prod in prodreq %}
+      <div class="card">
+        <div class="card-body">
+          <p class="card-text">Request Id:{{ prod.id }}</p>
+          <p class="card-text">Product Id:{{ prod.product_id }}</p>
+          <p class="card-text">Quantity:{{ prod.quantity }}</p>
+          <p class="card-text">Customer id:{{ prod.customer_id_id }}</p>
+          <p class="card-text">Contact no:{{ prod.contactno }}</p>
+          <p class="card-text">Address:{{ prod.address }}</p>
+          <center><a href="{%url 'acceptproductrequest' id=prod.id %}" class="btn btn-success">Accept</a>
+          <a href="{%url 'deleteproductrequest' id=prod.id %}" class="btn btn-dark">Decline</a>
+          </center>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    
+{% endblock %}

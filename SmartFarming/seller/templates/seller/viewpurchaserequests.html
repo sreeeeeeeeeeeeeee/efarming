@@ -1,0 +1,27 @@
+{% extends 'seller/base.html' %}
+{% load crispy_forms_filters%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+{% block title %} <title>requestdetails</title> {% endblock title %}
+{%block content%}
+    <div class="card-deck">
+      {% for tool in toolreq %}
+      <div class="card">
+        {% comment %} <img class="card-img-top" src="{{ tool.toolpic.url }}" alt="Card image cap"> {% endcomment %}
+        <div class="card-body">
+          <p class="card-text">Request Id:{{ tool.id }}</p>
+          <p class="card-text">Quantity:{{ tool.quantity }}</p>
+          <p class="card-text">Customer id:{{ tool.farmerregister_id_id }}</p>
+          <p class="card-text">Machinary Id:{{ tool.toolid_id }}</p>
+          <center><a href="{%url 'accepttoolrequest' id=tool.id%}" class="btn btn-success">Accept</a>
+          <a href="{%url 'deletetoolrequest' tool.id%}" class="btn btn-dark">Decline</a>
+          </center>
+          {% comment %} <center>   
+            <a class="btn btn-primary" href="media/{{employer.description}}"> Comany details</a>       
+        </center> {% endcomment %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load crispy_forms_filters%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+{% block title %} <title>approvefarmeraccounts</title> {% endblock title %}
+{%block content%}
+    <div class="card-deck">
+      {% for farmer in farmeracc %}
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ farmer.farmername }}</h5>
+          <p class="card-text">{{ farmer.phoneno }}</p>
+          <p class="card-text">{{ farmer.address }}</p>
+          <p class="card-text">{{ farmer.email }}</p>
+          <a href="{%url 'approvefarmer' id=farmer.id %}" class="btn btn-success">Approve</a>
+          <a href="{%url 'deletefarmer' farmer.id %}" class="btn btn-dark text-light">Reject</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    
+{% endblock %}

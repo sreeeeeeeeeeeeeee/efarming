@@ -1,0 +1,23 @@
+{% extends 'worker/base.html' %}
+{% load crispy_forms_filters%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+{% block title %} <title>Product Details</title> {% endblock title %}
+{%block content%}
+    <div class="card-deck">
+      {% for prod in prodlist %}
+      <div class="card">
+        <img class="card-img-top" src="{{ prod.productimage.url }}" alt="Card image cap" width="100" height="120">
+        <div class="card-body">
+          <h5 class="card-title">{{ prod.productname }}</h5>
+          <p class="card-text">{{ prod.id }}</p>
+          <p class="card-text">{{ prod.description }}</p>
+          <p class="card-text">{{ prod.price }}</p>
+          <p class="card-text">{{ prod.status }}</p>
+          <center><a href="{%url 'sendproductrequests' request.session.userid %}" class="btn btn-dark">Purchase</a></center>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    
+{% endblock %}

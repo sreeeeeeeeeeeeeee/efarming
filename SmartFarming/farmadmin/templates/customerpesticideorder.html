@@ -1,0 +1,12 @@
+{%extends 'basepurchase.html'%}
+{% load crispy_forms_filters%}
+{%block content%}
+<div style="border:solid black; width:500px;margin-left:350px;margin-top:50px;padding:20px;">
+    <h3><center>Pesticide Order Request</center></h3>
+    <form action="{%url 'customerpesticideorderrequest' request.session.userid%}" method="POST" enctype="multipart/form-data">
+    {%csrf_token%}
+    {{form|crispy}}
+    <center><button type="submit" value="submit" class="btn btn-success">Submit</button></center>
+    </form>
+</div>
+{%endblock%}

@@ -1,0 +1,18 @@
+{% extends 'basepurchase.html' %}
+{% load crispy_forms_filters%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+{% block title %} <title>view profile</title> {% endblock title %}
+{%block content%}
+    <table style="border:solid black; width:500px;margin-left:350px;margin-top:50px;padding:20px;">
+        {% for myprofile in profile %}
+                <tr><td><h5>Name: {{ myprofile.cname }}</h5></td></tr>
+                <tr><td><p>Profile id: {{ myprofile.id }}</p>
+                <tr><td><p>Contact no: {{ myprofile.phoneno }}</p>
+                <tr><td><p>Address: {{ myprofile.address }}</p>
+                <tr><td><p>Email id: {{ myprofile.email }}</p>
+          <center><a href="{%url 'editcustomerprofile' myprofile.id %}" class="btn btn-success">Update</a></center>
+        {% endfor %}
+    </table>
+    
+{% endblock %}

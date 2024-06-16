@@ -1,0 +1,25 @@
+{% extends 'seller/base.html' %}
+{% load crispy_forms_filters%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+{% block title %} <title>machinarydetails</title> {% endblock title %}
+{%block content%}
+    <div class="card-deck">
+      {% for tool in toolslist %}
+      <div class="card">
+        <img class="card-img-top" src="{{ tool.timage.url }}" alt="Card image cap" width="100" height="120">
+        <div class="card-body">
+          <h5 class="card-title">{{ tool.tname }}</h5>
+          <p class="card-text">{{ tool.id }}</p>
+          <p class="card-text">{{ tool.description }}</p>
+          <p class="card-text">{{ tool.priceperday }}</p>
+          <p class="card-text">{{ tool.nooftools }}</p>
+          <p class="card-text">{{ tool.status }}</p>
+          <center><a href="{%url 'editrenttool' tool.id %}" class="btn btn-success">Update</a>
+          <a href="{%url 'deleterenttool' tool.id %}" class="btn btn-dark">Remove</a></center>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    
+{% endblock %}

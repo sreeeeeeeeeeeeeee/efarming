@@ -1,0 +1,25 @@
+{% extends 'worker/base.html' %}
+{% load crispy_forms_filters%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+{% block title %} <title>machinarydetails</title> {% endblock title %}
+{%block content%}
+    <div class="card-deck">
+      {% for tool in toollist %}
+      <div class="card" style="width:100px;">
+        <img class="card-img-top" src="{{ tool.pimage.url }}" alt="Card image cap" width='50' height='100'>
+        <div class="card-body">
+          <h5 class="card-title">{{ tool.pname }}</h5>
+          <p class="card-text">{{ tool.id }}</p>
+          <p class="card-text">{{ tool.pcategory }}</p>
+          <p class="card-text">{{ tool.description }}</p>
+          <p class="card-text">{{ tool.price }}</p>
+          <p class="card-text">{{ tool.status }}</p>
+          <center><a href="{%url 'sendtoolorderrequests' request.session.userid%}" class="btn btn-success">Purchase</a>
+          </center>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    
+{% endblock %}

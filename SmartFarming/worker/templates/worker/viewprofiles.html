@@ -1,0 +1,26 @@
+{% extends 'worker/base.html' %}
+{% load crispy_forms_filters%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+{% block title %} <title>view profile</title> {% endblock title %}
+{%block content%}
+    <table style="border:solid black; width:500px;margin-left:350px;margin-top:50px;padding:20px;">
+        {% for myprofile in profile %}
+        {% comment %} <img class="card-img-top" src="{{ tool.toolpic.url }}" alt="Card image cap"> {% endcomment %}
+                <tr><td><h5>Name: {{ myprofile.workername }}</h5></td></tr>
+                <tr><td><p>Profile id: {{ myprofile.id }}</p>
+                <tr><td><p>Age: {{ myprofile.age }}</p>
+                <tr><td><p>Gender: {{ myprofile.gender }}</p>
+                <tr><td><p>Contact no: {{ myprofile.phoneno }}</p>
+                <tr><td><p>Address: {{ myprofile.address }}</p>
+                <tr><td><p>Occupation: {{ myprofile.occupation }}</p>
+                <tr><td><p>Experience: {{ myprofile.experience }}</p>
+                <tr><td><p>Email id: {{ myprofile.email }}</p>
+          <center><a href="{%url 'editworkerprofile' request.session.userid%}" class="btn btn-success">Update</a></center>
+          {% comment %} <center>   
+            <a class="btn btn-primary" href="media/{{employer.description}}"> Comany details</a>       
+        </center> {% endcomment %}
+        {% endfor %}
+    </table>
+    
+{% endblock %}

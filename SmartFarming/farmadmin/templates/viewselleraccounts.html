@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load crispy_forms_filters%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+{% block title %} <title>selleraccounts</title> {% endblock title %}
+{%block content%}
+<h5>View seller accounts</h5><br>
+<div class="table">
+  <table>
+    <div class="table">
+      <div class="table-body">
+        <tr>
+          <th>Name</th>
+          <th>User ID</th>
+          <th>Phone No</th>
+          <th>Address</th>
+          <th>Email</th>
+          <th>Shop Name</th>
+          <th>Location</th>
+          <th>Manage</th>
+        </tr>
+        {% for seller in selleracc %}
+        <tr>
+          <td>{{ seller.ownername }}</td>
+          <td>{{ seller.id }}</td>
+          <td>{{ seller.phoneno }}</td>
+          <td>{{ seller.address }}</td>
+          <td>{{ seller.email }}</td>
+          <td>{{ seller.shopname }}</td>
+          <td>{{ seller.location }}</td>
+          <td><a href="{%url 'deleteseller' seller.id %}" class="btn btn-dark">Remove</a></td>
+        </tr>
+      </div>
+    </div>
+      {% endfor %}
+    </div>
+    
+{% endblock %}

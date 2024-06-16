@@ -1,0 +1,25 @@
+{% extends 'basepurchase.html' %}
+{% load crispy_forms_filters%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+{% block title %} <title>productdetails</title> {% endblock title %}
+{%block content%}
+<br>
+    <div class="card-deck">
+      {% for prod in product %}
+      <div class="card">
+        <img class="card-img-top" src="{{ prod.productimage.url }}" alt="Card image cap" width="100" height="120">
+        <div class="card-body">
+          <h5 class="card-title">{{ prod.id }}</h5>
+          <p class="card-text">{{ prod.productname }}</p>
+          <p class="card-text">{{ prod.description }}</p>
+          <p class="card-text">{{ prod.price }}</p>
+          <p class="card-text">{{ prod.status }}</p>
+          <center><a href="{%url 'customerproductorderrequest' request.session.userid %}" class="btn btn-success">Order</a></center>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    
+{% endblock %}

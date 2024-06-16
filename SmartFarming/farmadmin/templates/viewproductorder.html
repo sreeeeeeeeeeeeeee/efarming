@@ -1,0 +1,23 @@
+{% extends 'basepurchase.html' %}
+{% load crispy_forms_filters%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+{% block title %} <title>Order Details</title> {% endblock title %}
+{%block content%}
+    <div class="card-deck">
+      {% for order in orderlist %}
+      <div class="card" style='width:300px'>
+        <div class="card-body">
+          <h5 class="card-title">Order ID: {{ order.id }}</h5>
+          <p class="card-text">Product ID: {{ order.product_id }}</p>
+          <p class="card-text">Qunatity: {{ order.quantity }}</p>
+          <p class="card-text">Address: {{ order.address }}</p>
+          <p class="card-text">Contact no: {{ order.contactno }}</p>
+          <p class="card-text"><b>Order status: {{ order.status }}</b></p>
+          <center><a href="{%url 'cancelproductorder' order.id%}" class="btn btn-dark">Cancel</a></center>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    
+{% endblock %}

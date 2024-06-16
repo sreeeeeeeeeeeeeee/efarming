@@ -1,0 +1,21 @@
+{% extends 'worker/base.html' %}
+{% load crispy_forms_filters%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+{% block title %} <title>Order Details</title> {% endblock title %}
+{%block content%}
+    <div class="card-deck">
+      {% for order in orderlist %}
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Order ID: {{ order.id }}</h5>
+          <p class="card-text">Tool Id: {{ order.toolid_id }}</p>
+          <p class="card-text">Quantity: {{ order.quantity }}</p>
+          <p class="card-text"><b>Status: {{ order.status }}</b></p>
+          <center><a href="{%url 'cancelworkerorder' order.id %}" class="btn btn-dark">Cancel</a></center>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    
+{% endblock %}

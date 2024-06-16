@@ -1,0 +1,24 @@
+{% extends 'basepurchase.html' %}
+{% load crispy_forms_filters%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+{% block title %} <title>pesticidedetails</title> {% endblock title %}
+{%block content%}
+<br>
+<div class="card-deck">
+    {% for pest in pestproduct %}
+    <div class="card">
+      <img class="card-img-top" src="{{ pest.pimage.url }}" alt="Card image cap" width="10" height="120">
+      <div class="card-body">
+        <h5 class="card-title">{{ pest.id }}</h5>
+        <p class="card-text">{{ pest.pname }}</p>
+        <p class="card-text">{{ pest.pcategory }}</p>
+        <p class="card-text">{{ pest.description }}</p>
+        <p class="card-text">{{ pest.price }}</p>
+        <p class="card-text">{{ pest.status }}</p>
+        <center><a href="{%url 'customerpesticideorderrequest' request.session.userid %}" class="btn btn-success">Order</a></center>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endblock %}

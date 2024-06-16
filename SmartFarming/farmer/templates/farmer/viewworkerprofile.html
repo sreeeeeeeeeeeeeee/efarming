@@ -1,0 +1,24 @@
+{% extends 'farmer/base.html' %}
+{% load crispy_forms_filters%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+{% block title %} <title>workerdetails</title> {% endblock title %}
+{%block content%}
+    <div class="card-deck">
+      {% for worker in workerdet %}
+      <div class="card" style="width:250px;">
+        {% comment %} <img class="card-img-top" src="{{ employer.photo.url }}" alt="Card image cap"> {% endcomment %}
+        <div class="card-body">
+          <h5 class="card-title">{{ worker.workername }}</h5>
+          <p class="card-text">{{ worker.phoneno }}</p>
+          <p class="card-text">{{ worker.address }}</p>
+          <p class="card-text">{{ worker.email }}</p>
+          <p class="card-text">{{ worker.occupation }}</p>
+          <p class="card-text">{{ worker.experience }}</p>
+        </div>
+        <a href="{%url 'sendjobrequests' request.session.userid %}" class="btn btn-secondary">Request</a>
+      </div>
+      {% endfor %}
+    </div>
+    
+{% endblock %}

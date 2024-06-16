@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load crispy_forms_filters%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+{% block title %} <title>farmeraccounts</title> {% endblock title %}
+{%block content%}
+<h5>View farmer accounts</h5><br>
+    <div class="table">
+      <table>
+        <div class="table">
+          <div class="table-body">
+            <tr>
+              <th>Name</th>
+              <th>User ID</th>
+              <th>Phone No</th>
+              <th>Address</th>
+              <th>Email</th>
+              <th>Manage</th>
+            </tr>
+            {% for farmer in farmeracc %}
+            <tr>
+              <td>{{ farmer.farmername }}</td>
+              <td>{{ farmer.id }}</td> 
+              <td>{{ farmer.phoneno }}</td>
+              <td>{{ farmer.address }}</td>
+              <td>{{ farmer.email }}</td>
+              <td><a href="{%url 'deletefarmer' farmer.id %}" class="btn btn-dark">Remove</a></td>
+            </tr>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    
+{% endblock %}

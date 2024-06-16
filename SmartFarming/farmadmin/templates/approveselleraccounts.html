@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load crispy_forms_filters%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+{% block title %} <title>selleraccounts</title> {% endblock title %}
+{%block content%}
+    <div class="card-deck">
+      {% for seller in selleracc %}
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ seller.ownername }}</h5>
+          <p class="card-text">{{ seller.phoneno }}</p>
+          <p class="card-text">{{ seller.address }}</p>
+          <p class="card-text">{{ seller.email }}</p>
+          <p class="card-text">{{ seller.shopname }}</p>
+          <p class="card-text">{{ seller.location }}</p>
+          <a href="{%url 'approveseller' id=seller.id %}"class="btn btn-success">Approve</a>
+          <a href="{%url 'deleteseller' seller.id %}" class="btn btn-dark">Reject</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    
+{% endblock %}

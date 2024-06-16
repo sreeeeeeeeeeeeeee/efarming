@@ -1,0 +1,25 @@
+{% extends 'basepurchase.html' %}
+{% load crispy_forms_filters%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+{% block title %} <title>machinerydetails</title> {% endblock title %}
+{%block content%}
+<br>
+<div class="card-deck">
+    <p>Machinery</p>
+    {% for tool in toolproduct %}
+    <div class="card">
+      <img class="card-img-top" src="{{ tool.pimage.url }}" alt="Card image cap" width="100" height="120">
+      <div class="card-body">
+        <h5 class="card-title">{{ tool.id }}</h5>
+        <p class="card-text">{{ tool.pname }}</p>
+        <p class="card-text">{{ tool.pcategory }}</p>
+        <p class="card-text">{{ tool.description }}</p>
+        <p class="card-text">{{ tool.price }}</p>
+        <p class="card-text">{{ tool.status }}</p>
+        <center><a href="{%url 'customermachineryorderrequest' request.session.userid %}" class="btn btn-success">Order</a></center>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock %}

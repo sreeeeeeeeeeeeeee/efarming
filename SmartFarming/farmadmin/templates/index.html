@@ -1,0 +1,97 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+      .footer {
+        background-color: black;
+        text-align: center;
+        padding: 50px;
+      }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <a class="navbar-brand" href="#"><img src="{% static '/img/farm_logo.jpg' %}" width="30" height="30" class="d-inline-block align-top" alt="">          
+          Smart Farming</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item active" style="margin-left:470px;">
+              <a class="nav-link" href="{%url 'customerpage'%}">Purchase <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="{%url 'logins'%}">Login</a>
+            </li>
+        
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Register
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="{%url 'registerfarmer'%}">Farmer</a>
+                <a class="dropdown-item" href="{%url 'registerworker'%}">Worker</a>
+                <a class="dropdown-item" href="{%url 'registerseller'%}">Seller</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#">About Us</a>
+            </li>
+          </ul>
+          {% comment %} <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+          </form> {% endcomment %}
+        </div>
+      </nav>
+      {%block content%}
+      {%endblock%}
+      {% comment %} <p>Are you here to purchase products?<a href="{%url 'viewproduct'%}"> Yes</a></p> {% endcomment %}
+      <img src="{% static '/img/farm_bg1.jpg' %}" width="1308" height="600" alt="">
+      <br>
+      <h1 class='text-dark'>About Us</h1>
+      
+      <div class="card-deck">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">What is smart farming?</h5>
+            <p class="card-text">Smart farming centers on growing farm productivity using technology - hardware and software.</p>
+            <a href="aboutus1" class="btn btn-dark text-light">View More</a>
+          </div>
+        </div>
+      </div>
+      <div class="card-deck">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">What is smart farming?</h5>
+            <p class="card-text">Smart farming centers on growing farm productivity using technology - hardware and software.</p>
+            <a href="aboutus2" class="btn btn-dark text-light">View More</a>
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="footer">
+        <p class='text-light'>Creator: Rinju Sabu<br>
+          <a href="mailto:rinjusabu1999@gmail.com">rinjusabu1999@gmail.com</a><br>
+          Contact Us: +91 9207592858</p>
+      </div>
+
+
+
+    
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
